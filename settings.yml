@@ -1,0 +1,17 @@
+---
+
+controller: 
+  - hostname: scollins-devstack-1
+    ip: 172.18.161.6
+user: stack
+nodes:
+  - hostname: scollins-devstack-2
+    ip: 172.18.161.7
+  - hostname: scollins-devstack-3
+    ip: 172.18.161.50
+  - hostname: scollins-devstack-4
+    ip: 172.18.161.39
+  - hostname: scollins-devstack-5
+    ip: 172.18.161.14
+devstack_branch: single_interface_neutron
+devstack_repo: https://github.com/sc68cal/devstack.git
