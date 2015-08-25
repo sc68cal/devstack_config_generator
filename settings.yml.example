@@ -1,0 +1,12 @@
+---
+controller:
+  - hostname: devstack-1.coreitpro.com
+    ip: 192.168.1.246
+user: stack
+nodes:
+  - hostname: devstack-2.coreitpro.com
+    ip: 192.168.1.216
+  - hostname: devstack-3.coreitpro.com
+    ip: 192.168.1.217
+devstack_branch: master
+devstack_repo: https://github.com/openstack-dev/devstack.git

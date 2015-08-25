@@ -1,2 +1,3 @@
 *.localrc
 *.local.conf
+settings.yml
