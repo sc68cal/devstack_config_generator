@@ -11,6 +11,12 @@ task :default => [:generate_configs, :push_localconf, :push_localrc,
 task :configure => [:generate_configs, :push_localconf, :push_localrc,
                     :set_devstack_origin, :checkout_devstack_branch]
 
+task :clone do
+  for node in all_nodes do
+    sh "ssh #{user}@#{node['ip']} git clone #{settings['devstack_repo']}"
+  end
+end
+
 task :push_localconf => [:generate_configs] do 
   for node in all_nodes do
     sh "scp #{node['hostname']}.local.conf #{user}@#{node['hostname']}:devstack/local.conf"
