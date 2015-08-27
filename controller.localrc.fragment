@@ -1,6 +1,6 @@
 SWIFT_REPLICAS=1
 
-ENABLED_SERVICES=mysql,rabbit,key,tempest,g-api,g-reg,n-api,n-cond,n-cpu,n-crt,n-obj,n-sch,q-svc,q-dhcp,q-meta,q-agt,q-l3,n-novnc
+ENABLED_SERVICES=mysql,rabbit,key,tempest,g-api,g-reg,n-api,n-cond,n-cpu,n-crt,n-obj,n-sch,q-svc,q-dhcp,q-meta,q-agt,q-l3,n-novnc,n-cauth
 ## Neutron options
 
 FLOATING_RANGE="192.168.1.0/24"
