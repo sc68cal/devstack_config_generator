@@ -1,1 +1,1 @@
-ENABLED_SERVICES=n-cpu,rabbit,neutron,q-agt
+ENABLED_SERVICES=n-cpu,rabbit,q-agt
