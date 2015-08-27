@@ -2,7 +2,7 @@
 
 This repo contains scripts to create `localrc` files for [DevStack](http://devstack.org), which is
 used to build out a development environment inside of ~~Comcast~~
-Mirantis. 
+~~Mirantis~~ my home lab. 
 
 ## Usage
 
