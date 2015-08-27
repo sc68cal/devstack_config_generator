@@ -8,7 +8,7 @@ user = settings["user"]
 task :default => [:generate_configs, :push_localconf, :push_localrc,
                   :set_devstack_origin, :checkout_devstack_branch, :restack]
 
-task :configure => [:generate_configs, :push_localconf, :push_localrc,
+task :config => [:generate_configs, :push_localconf, :push_localrc,
                     :set_devstack_origin, :checkout_devstack_branch]
 
 task :clone do
