@@ -11,3 +11,4 @@ SERVICE_TOKEN=secrete
 
 ## Neutron options
 PUBLIC_INTERFACE=p3p1
+LOG_COLOR=False
