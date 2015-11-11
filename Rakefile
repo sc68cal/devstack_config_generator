@@ -85,13 +85,13 @@ end
 task :restack do 
   for node in all_nodes do
     sh "ssh #{user}@#{node['hostname']} bash devstack/unstack.sh"
-    sh "ssh #{user}@#{node['hostname']} \"cd devstack; RECLONE=YES bash stack.sh\" > /dev/null 2>&1 &"
+    sh "ssh #{user}@#{node['hostname']} screen -d -m bash devstack/stack.sh"
   end
 end
 
 task :restack_computes do
   for node in settings["nodes"]
     sh "ssh #{user}@#{node['hostname']} bash devstack/unstack.sh"
-    sh "ssh #{user}@#{node['hostname']} \"cd devstack; RECLONE=YES bash stack.sh\" > /dev/null 2>&1 &"
+    sh "ssh #{user}@#{node['hostname']} screen -d -m bash devstack/stack.sh"
   end
 end
