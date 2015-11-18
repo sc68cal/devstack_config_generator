@@ -5,3 +5,20 @@ vncserver_listen = $NODE_IP
 vncserver_proxyclient_address = $NODE_IP
 xvpvncproxy_base_url = http://$CONTROLLER_HOSTNAME:6081/console
 novncproxy_base_url = http://$CONTROLLER_HOSTNAME:6080/vnc_auto.html
+
+[[local|localrc]]
+RECLONE=YES
+HOST_IP=$NODE_IP
+SERVICE_HOST=$CONTROLLER_HOSTNAME
+MYSQL_HOST=$CONTROLLER_HOSTNAME
+RABBIT_HOST=$CONTROLLER_HOSTNAME
+GLANCE_HOSTPORT=$CONTROLLER_HOSTNAME:9292
+ADMIN_PASSWORD=secrete
+MYSQL_PASSWORD=secrete
+RABBIT_PASSWORD=secrete
+SERVICE_PASSWORD=secrete
+SERVICE_TOKEN=secrete
+
+## Neutron options
+PUBLIC_INTERFACE=p3p1
+LOG_COLOR=False

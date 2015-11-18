@@ -32,18 +32,7 @@ end
 task :generate_configs do
   controller = settings["controller"].first
 
-  localrc_template = File.open('localrc.template').read()
   local_conf_template = File.open('local.conf.template').read()
-  # Compute Nodes - localrc
-  for node in settings['nodes'] do
-    rendered = localrc_template.gsub("$NODE_IP", node["ip"])
-    rendered.gsub!("$CONTROLLER_HOSTNAME", "#{controller['ip']}")
-    output = File.open("#{node["hostname"]}.localrc", 'w')
-    output.write(rendered)
-    output.close()
-
-    sh "cat computes.localrc.fragment >> #{node["hostname"]}.localrc"
-  end
 
   # Compute Nodes - local.conf
   for node in settings['nodes'] do
@@ -52,22 +41,18 @@ task :generate_configs do
     output = File.open("#{node["hostname"]}.local.conf", 'w')
     output.write(rendered)
     output.close()
+    sh "cat computes.localrc.fragment >> #{node["hostname"]}.local.conf"
   end
 
   # Control node
-  rendered = localrc_template.gsub("$NODE_IP", controller['ip'])
+  rendered = local_conf_template.gsub("$NODE_IP", controller['ip'])
   rendered.gsub!("$CONTROLLER_HOSTNAME", "#{controller['ip']}")
-  output = File.open("#{controller['hostname']}.localrc", "w")
+  output = File.open("#{controller['hostname']}.local.conf", "w")
   output.write(rendered)
   output.close()
 
-  sh "cat controller.localrc.fragment >> #{controller['hostname']}.localrc"
+  sh "cat controller.localrc.fragment >> #{controller['hostname']}.local.conf"
 
-  rendered = local_conf_template.gsub("$NODE_IP", controller["ip"])
-  rendered.gsub!("$CONTROLLER_HOSTNAME", "#{controller['ip']}")
-  output = File.open("#{controller['hostname']}.local.conf", 'w')
-  output.write(rendered)
-  output.close()
 end
 
 task :checkout_devstack_branch do
