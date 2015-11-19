@@ -10,3 +10,4 @@ nodes:
     ip: 192.168.1.217
 devstack_branch: master
 devstack_repo: https://github.com/openstack-dev/devstack.git
+password: changeme

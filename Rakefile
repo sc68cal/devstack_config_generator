@@ -38,6 +38,7 @@ task :generate_configs do
   for node in settings['nodes'] do
     rendered = local_conf_template.gsub("$NODE_IP", node["ip"])
     rendered.gsub!("$CONTROLLER_HOSTNAME", "#{controller['ip']}")
+    rendered.gsub!("$PASSWORD", settings['password'])
     output = File.open("#{node["hostname"]}.local.conf", 'w')
     output.write(rendered)
     output.close()
@@ -47,6 +48,7 @@ task :generate_configs do
   # Control node
   rendered = local_conf_template.gsub("$NODE_IP", controller['ip'])
   rendered.gsub!("$CONTROLLER_HOSTNAME", "#{controller['ip']}")
+  rendered.gsub!("$PASSWORD", settings['password'])
   output = File.open("#{controller['hostname']}.local.conf", "w")
   output.write(rendered)
   output.close()
