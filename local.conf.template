@@ -1,10 +1,23 @@
 [[post-config|$NOVA_CONF]]
 [DEFAULT]
+
+# VNC
 vnc_enabled = true
 vncserver_listen = $NODE_IP
 vncserver_proxyclient_address = $NODE_IP
 xvpvncproxy_base_url = http://$CONTROLLER_HOSTNAME:6081/console
 novncproxy_base_url = http://$CONTROLLER_HOSTNAME:6080/vnc_auto.html
+
+# RPC versioning
+[upgrade_levels]
+compute=liberty
+conductor=liberty
+scheduler=liberty
+
+# Live Migration
+config_drive_format = vfat
+[libvirt]
+live_migration_uri = qemu+ssh://stack@%s/system
 
 [[local|localrc]]
 RECLONE=YES
