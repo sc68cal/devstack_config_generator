@@ -6,7 +6,10 @@ This repo contains scripts to create `localrc` files for [DevStack](http://devst
 
 ## Usage
 
-* Use `rake` to invoke the tasks in the `Rakefile` 
+* Use `rake` to invoke the tasks in the `Rakefile`. `rake` with no
+  arguments will generate the configurations, copy them to each node
+  in the cluster defined in `settings.yml` then restack (`unstack.sh`
+  && `stack.sh`) the nodes.
 
 ## Access
 
