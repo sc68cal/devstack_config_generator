@@ -70,9 +70,21 @@ task :restack do
   end
 end
 
+task :unstack do
+  for node in all_nodes do
+    sh "ssh #{user}@#{node['hostname']} bash devstack/unstack.sh"
+  end
+end
+
 task :restack_computes do
   for node in settings["nodes"]
     sh "ssh #{user}@#{node['hostname']} bash devstack/unstack.sh"
     sh "ssh #{user}@#{node['hostname']} screen -d -m bash devstack/stack.sh"
+  end
+end
+
+task :reboot do
+  for node in settings["nodes"]
+    sh "ssh #{user}@#{node['hostname']} sudo shutdown -r now"
   end
 end
